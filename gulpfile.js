@@ -57,6 +57,15 @@ const clean = () => {
   return del([buildFolder])
 }
 
+//deploy
+const gulp = require('gulp');
+const ghPages = require('gulp-gh-pages');
+
+gulp.task('deploy', function() {
+    return gulp.src('./app/**/*')
+        .pipe(ghPages());
+});
+
 //svg sprite
 const svgSprites = () => {
   return src(paths.srcSvg)
